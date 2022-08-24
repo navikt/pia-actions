@@ -13,7 +13,7 @@ name: Din nye kule workflow
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   e2e-tests:
