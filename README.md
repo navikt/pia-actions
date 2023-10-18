@@ -26,19 +26,16 @@ jobs:
 # Ved oppdatering av actions
 
 Når man har gjort endringer i noen av disse actionene, må man huske på å tagge med ny versjon.
-Dette gjøres ved å først commite og pushe endringene, og deretter tagge med ny versjon:
+Dette gjøres ved å først commite og pushe endringene, og deretter tagge med ny versjon, og oppdatere v1 taggen.
 
 ```bash
  > git tag -a -m "Ny og bedre" v1.1.1                                                                                                       128 ✘  10:53:36 
 
  > git push --follow-tags                                                                                                                       ✔  10:53:45 
 
-Enumerating objects: 1, done.
-Counting objects: 100% (1/1), done.
-Writing objects: 100% (1/1), 166 bytes | 166.00 KiB/s, done.
-Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
-To github.com:navikt/pia-actions.git
- * [new tag]         v1.1.1 -> v1.1.1
+ > git tag -fa v1 -m "Update v1 tag"
+
+ > git push origin v1 --force
 ```
 ---
 
