@@ -31,6 +31,7 @@ inputs:
 runs:
   using: composite
   steps:
+    - uses: actions/checkout@v4
     - uses: nais/login@v0
       with:
         project_id: ${{ inputs.project_id }}
