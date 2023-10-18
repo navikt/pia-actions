@@ -9,6 +9,12 @@ inputs:
     description: Team som eier applikasjonen
     required: true
     default: pia
+  project_id:
+    description: Google Cloud project ID
+    required: true
+  identity_provider:
+    description: Workload Identity Provider
+    required: true
 
 runs:
   using: composite
@@ -16,11 +22,9 @@ runs:
     - uses: actions/checkout@v4
     - uses: nais/login@v0
       with:
-        project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-        identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+        project_id: ${{ inputs.project_id }}
+        identity_provider: ${{ inputs.identity_provider }}
         team: ${{ inputs.team }}
-    - run: docker pull ${{ inputs.image }}
-      shell: bash
     - name: Run Trivy vulnerability scanner on docker image
       uses: aquasecurity/trivy-action@master
       with:
