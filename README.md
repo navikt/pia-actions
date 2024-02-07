@@ -29,13 +29,11 @@ Når man har gjort endringer i noen av disse actionene, må man huske på å tag
 Dette gjøres ved å først commite og pushe endringene, og deretter tagge med ny versjon, og oppdatere v1 taggen.
 
 ```bash
- > git tag -a -m "Ny og bedre" v1.1.1                                                                                                       128 ✘  10:53:36 
-
- > git push --follow-tags                                                                                                                       ✔  10:53:45 
-
- > git tag -fa v1 -m "Update v1 tag"
-
- > git push origin v1 --force
+git tag -a -m "Hva som er gjort" v1.1.4
+git push --follow-tags
+git tag -fa v1 -m "Update v1 tag"
+git push origin v1 --force
+gh release create v1.1.4
 ```
 ---
 
