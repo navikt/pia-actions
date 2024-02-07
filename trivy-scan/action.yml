@@ -57,7 +57,7 @@ runs:
 
     - name: Laster opp Trivy sin rårapport som artifact
       if: ${{ inputs.upload-artifact == 'true' }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: trivy-results
         path: trivy-results.sarif
