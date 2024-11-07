@@ -1,6 +1,10 @@
 name: Scanner docker image med Trivy
 description: Skanner docker image med Trivy og laster opp resultatet til GitHub Security
 
+env:
+  TRIVY_JAVA_DB_REPOSITORY: "public.ecr.aws/aquasecurity/trivy-java-db:1"
+  TRIVY_DB_REPOSITORY: "public.ecr.aws/aquasecurity/trivy-db"
+
 inputs:
   image:
     description: Docker image som skal skannes
