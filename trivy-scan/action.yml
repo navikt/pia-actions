@@ -17,12 +17,6 @@ inputs:
     description: Team som eier applikasjonen
     required: true
     default: pia
-  project_id:
-    description: Google Cloud project ID
-    required: true
-  identity_provider:
-    description: Workload Identity Provider
-    required: true
   upload-artifact:
     description: Last opp Trivy sin rårapport som artifact
     required: false
@@ -34,8 +28,6 @@ runs:
     - uses: actions/checkout@v4
     - uses: nais/login@v0
       with:
-        project_id: ${{ inputs.project_id }}
-        identity_provider: ${{ inputs.identity_provider }}
         team: ${{ inputs.team }}
 
     - name: Run Trivy vulnerability scanner on docker image
