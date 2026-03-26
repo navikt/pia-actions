@@ -25,13 +25,13 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
     - uses: nais/login@c88ada9ce583928e1c84d2fd5c45cfacdd18d5de # v0
       with:
         team: ${{ inputs.team }}
 
     - name: Run Trivy vulnerability scanner on docker image
-      uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v.0.35.0
+      uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
       env:
         TRIVY_JAVA_DB_REPOSITORY: "public.ecr.aws/aquasecurity/trivy-java-db:1"
         TRIVY_DB_REPOSITORY: "public.ecr.aws/aquasecurity/trivy-db"
@@ -52,7 +52,7 @@ runs:
 
     - name: Laster opp Trivy sin rårapport som artifact
       if: ${{ inputs.upload-artifact == 'true' }}
-      uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v.7.0.0
+      uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
       with:
         name: trivy-results
         path: trivy-results.sarif
