@@ -25,7 +25,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - uses: nais/login@bb6c3e1e14e53d40d69d0d092bd2fce2e39ae3bf # v0
       with:
         team: ${{ inputs.team }}
@@ -45,7 +45,7 @@ runs:
         output: trivy-results.sarif # Filen som genereres av trivy brukes i de neste stegene
 
     - name: Upload Trivy scan results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@54f647b7e1bb85c95cddabcd46b0c578ec92bc1a # v4.36.3
+      uses: github/codeql-action/upload-sarif@e4fba868fa4b1b91e1fdab776edc8cfbe6e9fb81 # v4.37.3
       if: always()
       with:
         sarif_file: trivy-results.sarif
